@@ -1,0 +1,122 @@
+/* ///////////////////// General Styling ///////////////////// */
+
+  html{
+  	height: 100%;
+  }
+
+  body{
+    height: 100%;
+    width: 100%;
+    background:#f0e9dd;
+    display: table;
+  }
+
+  #viewport{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  img{
+    width: 21%;
+    max-width: 300px;
+    /* margin: 10px; */
+    box-shadow: 1px 1px 4px rgba(0,0,0,.8);
+  }
+
+  @media screen and (max-width:580px){
+    img{
+       width: 44.5%;
+    }
+  }
+
+/* ///////////////////// 3D Environment ///////////////////// */
+
+  .preserve3d #viewport{
+    text-align: left;
+    perspective: 500px;
+  }
+
+  .preserve3d #toptier,.preserve3d #bottomtier{
+    width: 300px;
+    height: 169px;
+    /* background: url('images/parent.png'); */
+    transform-style: preserve-3d;
+  }
+
+  .preserve3d img{
+    position: absolute;
+    width: 300px;
+    margin: 0;
+    /* opacity: .7; */
+    border-radius: 4px;
+    box-shadow: none;
+  }
+
+/* ///////////////////// Toptier Object ///////////////////// */
+
+.preserve3d #toptier{
+  position: absolute;
+  margin:0 auto 0 auto;
+  transform: translateY(-250px) rotateY(0deg);
+}
+
+.preserve3d #pic1{
+  transform: translateZ(160px);
+}
+
+.preserve3d #pic2{
+  transform: translateX(160px) rotateY(90deg);
+}
+
+.preserve3d #pic3{
+  transform: translateZ(-160px) rotateY(180deg);
+}
+
+.preserve3d #pic4{
+  transform: translateX(-160px) rotateY(-90deg);
+}
+
+/* ///////////////////// Bottomtier Object ///////////////////// */
+
+.preserve3d #bottomtier{
+  margin: 200px auto 0 auto;
+  transform: translateZ(-280px) rotateY(0deg);
+}
+
+.preserve3d #pic5{
+  transform: translateZ(280px);
+}
+
+.preserve3d #pic6{
+  transform: translateX(280px) rotateY(90deg);
+}
+
+.preserve3d #pic7{
+  transform: translateZ(-280px) rotateY(180deg);
+}
+
+.preserve3d #pic8{
+  transform: translateX(-280px) rotateY(-90deg);
+}
+
+/* ///////////////////// Animation ///////////////////// */
+@keyframes rotateBottom {
+  100% {
+    transform: translateZ(-280px) rotateY(360deg);
+  }
+}
+
+@keyframes rotateTop {
+  100% {
+    transform: translateZ(-250px) rotateY(360deg);
+  }
+}
+
+.preserve3d #bottomtier {
+    animation: rotateBottom 2s infinite linear;
+}
+
+.preserve3d #toptomtier {
+  animation: rotateTop 2s infinite linear;
+}
